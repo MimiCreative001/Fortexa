@@ -685,5 +685,15 @@ license configuration is required; `scripts/license.test.ts` is a focused check 
 keeps `LICENSE`, the `package.json` metadata, and this README link in sync (run it
 with `npm test`).
 
-All done
-...
+---
+
+## 20) ⌨️ Keyboard Focus & Accessibility
+
+Fortexa ensures that all interactive components share a consistent, high-contrast `:focus-visible` treatment for keyboard navigation (WCAG 2.1 Success Criterion 2.4.7):
+
+- **Links & Triggers**: `a`, `[role="link"]`, `button`, and `[role="button"]` receive a high-contrast 2px cyan ring (`hsl(var(--ring))`) with a 2px offset.
+- **Form Controls**: `input`, `select`, and `textarea` highlight unambiguously on keyboard focus.
+- **Tabs & Navigation**: `[role="tab"]`, `nav a`, and `nav button` share the same visible focus treatment across desktop glass sidebars and compact mobile navigation bars.
+- **Button Component**: [`src/components/ui/button.tsx`](src/components/ui/button.tsx) aligns with this standard via `focus-visible:ring-2` and `focus-visible:ring-offset-2`.
+
+Verified via `scripts/focus-visible-audit.test.ts` (`npx vitest run scripts/focus-visible-audit.test.ts`).

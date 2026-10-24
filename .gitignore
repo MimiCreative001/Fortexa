@@ -2,8 +2,7 @@ node_modules
 .next
 out
 coverage
-.env.local
-.env
 .DS_Store
 .fortexa/
 tsconfig.tsbuildinfo
+config.bat
